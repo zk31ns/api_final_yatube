@@ -1,4 +1,4 @@
-from django_filters.rest_framework import DjangoFilterBackend
+# from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import filters, viewsets
 from rest_framework.generics import get_object_or_404
@@ -44,8 +44,8 @@ class FollowViewSet(viewsets.ModelViewSet):
     queryset = Follow.objects.all()
     serializer_class = sl.FollowSerializer
     permission_classes = [IsAuthenticated]
-    filter_backends = (DjangoFilterBackend, filters.SearchFilter)
-    search_fields = ['following__username']
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('following__username', 'user__username')
 
     def get_queryset(self):
         user = self.request.user
