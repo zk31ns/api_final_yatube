@@ -74,7 +74,7 @@ cd api_final_yatube
 
 ### 2. Настройка окружения
 
-python -m venv venv
+python3 -m venv venv
 \
 source venv/bin/activate  (Linux/MacOs)
 \
@@ -82,7 +82,7 @@ venv\Scripts\activate  (Windows)
 
 ### 3. Установка зависимостей
 pip install -r requirements.txt
-python -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 
 ### 4. Применение миграций
 python manage.py migrate
