@@ -88,4 +88,4 @@ python3 -m pip install --upgrade pip
 python manage.py migrate
 
 ### 5. Запуск сервера
-python manage.py runserver
+python3 manage.py runserver
