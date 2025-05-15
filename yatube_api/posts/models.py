@@ -39,6 +39,7 @@ class Post(models.Model):
 
     class Meta:
         default_related_name = '%(class)ss'
+        ordering = ['-pub_date']
 
     def __str__(self):
         return self.text[:MAX_TITLE_LENGTH]
@@ -83,7 +84,11 @@ class Follow(models.Model):
     )
 
     class Meta:
-        unique_together = ('user', 'following')
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'following'], name='unique_follow'
+            )
+        ]
 
     def __str__(self):
         return f"{self.user} подписан на {self.following}"
